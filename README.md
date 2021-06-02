@@ -5,13 +5,14 @@
 
 > This document provides a list of the required technologies for anyone who will be going through the Python/Automation program. It details why each technology is required and provides some step-by-step instructions on how to install and configure the technologies. This guide also walks you through any needed environment setup.
 
-**NOTE**: It is VERY important that you install these technologies as early as possible since we will not have much time to devote to environment setup due to the volume of content we'll cover. It is also important that you install the correct versions of the tools listed here as not all versions of the technologies we will use are guaranteed to be compatible with each other. If you choose to use a different version of one of the tools listed here, you will be responsible for debugging issues that are specific to your version.
+**NOTE**: It is VERY important that you install these technologies as early as possible since we will not have much time to devote to environment setup due to the volume of content we'll cover. It is also important that you install the correct versions of the tools listed here as not all versions of the technologies we will use are guaranteed to be compatible with each other. If you choose to use a different operating system or version of one of the tools listed here, you will be responsible for debugging issues that are specific to your development environment.
 
 ## Required Technologies
 
 The following technologies and/or services are required in order to complete this phase of the program:
 
 - **Amazon Web Services (AWS)**: Amazon Web Services offers cost-effective, scalable cloud computing solutions. We will be using AWS for its Relational Database Service (RDS). There are no instructions below on how to sign up for an account as the process if straightforward. Simply [visit AWS' website](https://aws.amazon.com/) and register for an account; make sure that you select a **personal** account as personal accounts are allotted a year's worth of free tier cloud resources.
+- **Jira**: Jira is an issue tracking product which allows for bug tracking and agile project management. We will be using this project planning tool to collaborate effectively on projects and keep our work organized.
 - **Git**: We'll be using Git as a version control tool during the course of this program. Not only will you use Git to track changes to your projects, but you'll also use it to collaborate with your trainer and with your fellow associates.
 - **Java SE Development Kit 8**: We will be utilizing Java 8 as one of our primary languages for the duration of the program. This software development kit will provide the compiler and runtime environment needed to quickly and efficiently develop Java applications.
 - **Spring Tool Suite 4**: We will be using Spring Tool Suite 4 as our *integrated development environment* (IDE) for Java. Though you don't need an IDE to write code, an IDE provides several features that make rapid development (e.g. quickly writing and refactoring code) easier.
