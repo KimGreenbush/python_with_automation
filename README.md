@@ -624,6 +624,30 @@ Select your operating system first. After you've done so, download the *Communit
 
 ### Step 10: Install The PostgreSQL ODBC Driver
 
+**Note**: If you are not running Windows, this process will look somewhat different for you. You are still responsible for configuring the development environment for your own operating system.
+
+1. Navigate to [PostgreSQL's official ODBC download site](https://www.postgresql.org/ftp/odbc/versions/).
+
+2. You should see several directories:
+
+![ODBC Downloads](./images/odbc-downloads.PNG)
+
+The directory you click on depends on your operating system. In order to find out which directory to open, take a look at the README file that is listed under the directories on the site. Generally speaking, Windows users will want to use the "msi" directory while *nix users will want to use the "src" directory.
+
+3. Once you've clicked the appropriate folder, scroll down to the "psqlodbc_10" files:
+
+![PSQL ODBC Download Link](./images/psql-odbc.PNG)
+
+Choose any version of 10 which is compatible with your operating system. 
+
+4. After you've downloaded the file, unzip it. Open the folder to which you extracted the files and run the installer. You should see a setup box:
+
+![ODBC Wizard](./images/odbc-wizard.PNG)
+
+Move the default options for the driver and hit "Install" once you reach the final screen of the setup box.
+
+This should complete the installation of your ODBC driver.
+
 ### Step 11: Install Visual Studio Code (Optional)
 
 In order to download Visual Studio Code, please visit [Visual Studio Code's official website](https://code.visualstudio.com/download).
