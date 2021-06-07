@@ -3,7 +3,6 @@ Amr Aboudan
 Hello my name is Anna Ek.
 Ashar Habib likes hiking.
 Anthony Thompson like to ride his bike.
-Ashar Habib likes hiking.
 Byron Gil here. ('ω')ノ
 Christina Russ likes to do lyra hoop and swing dance.
 Hello I am Corey Hayne. Hello World!
@@ -13,7 +12,6 @@ devynn
 Hassan Quddusi
 Hey, it's Jacob here
 Hey y'all, this is Jameson Bergstedt.
-Jameson Bergstedt
 Jack Lyons
 Jeffrey Lipford
 Jonathan Combs likes DnD.
@@ -29,3 +27,7 @@ Raymond Amparo loves the Los Angeles Lakers.
 Sebastian hurst
 Maite Flores
 Hi from Audrey.
+Yo from Zach
+Hello from Christian Hall
+Tal Grossman
+Jesse b
