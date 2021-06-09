@@ -25,9 +25,9 @@ Take the following code snippets for example:
 
 **Snippet 1**:
 
-```
-# This code is inside of a file called "my_module.py".
+This code is inside of a file called "my_module.py"
 
+```py
 variable_introduction = "I'm a variable inside of a module!";
 
 def introduce_module():
@@ -39,9 +39,9 @@ class ClassInModule:
 
 **Snippet 2**:
 
-```
 This code is inside of a file called "other_module.py".
 
+```py
 import my_module
 
 # Using the function defined inside of my_module.py
@@ -54,9 +54,9 @@ Since these modules are namespaces, we can freely define functions and variables
 
 **Snippet 1**:
 
-```
-# This code is inside of a file called "my_module.py".
+This code is inside of a file called "my_module.py"
 
+```py
 variable_introduction = "I'm a variable inside of a module!";
 
 def introduce_module():
@@ -71,9 +71,9 @@ class ClassInModule:
 
 **Snippet 2**:
 
-```
-This code is inside of a file called "other_module.py".
+This code is inside of a file called "other_module.py"
 
+```py
 import my_module
 
 # Using the function defined inside of my_module.py
@@ -85,9 +85,9 @@ def no_conflict():
 
 Because both function definitions are in separate namespaces, the existence of both functions is legal. As such, we could invoke both functions from within `other_module.py` with no problems:
 
-```
-This code is inside of a file called "other_module.py".
+This code is inside of a file called "other_module.py"
 
+```py
 import my_module
 
 # Using the function defined inside of my_module.py

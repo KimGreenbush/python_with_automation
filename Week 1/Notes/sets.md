@@ -23,21 +23,21 @@ Some notable features of a set include:
 
 The syntax for creating a set in Python is as follows:
 
-```
+```py
 # A set of numbers
 my_set = {1, 2, 3};
 ```
 
 The above code snippets creates a simple set of three integers using a simple syntax. Despite this easy syntax, there is one "trick" to using sets in Python. Take a look at the following code:
 
-```
+```py
 # Not a set
 my_set = {};
 ```
 
 A programmer who is not familiar with Python might think that this snippet creates an empty set. Unfortunately, this code instead creates an empty [dictionary](./dictionaries.md). If a developer wants to create an empty set, they should use the set constructor like so:
 
-```
+```py
 my_set = set();
 ```
 
@@ -45,14 +45,14 @@ my_set = set();
 
 Let's imagine that we have our existing set of integers as defined in the example above:
 
-```
+```py
 # A set of numbers
 my_set = {1, 2, 3};
 ```
 
 For a fresh Python developer who wants to access the first element of the set, writing the following code is tempting:
 
-```
+```py
 # A set of numbers
 my_set = {1, 2, 3};
 # Not valid
@@ -61,7 +61,7 @@ my_set[0];
 
 As we mentioned earlier, programmers are not permitted to access elements by their index in Python. They must instead iterate over the set if they wish to access its elements:
 
-```
+```py
 # A loop that prints each element in the set
 for el in my_set:
     print(el);

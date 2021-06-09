@@ -21,14 +21,14 @@ Some notable features of a dictionary include:
 
 The syntax for creating a dictionary looks similar to the syntax for creating a set. This syntax is as follows:
 
-```
+```py
 # Creating a dictionary
 my_dictionary = {};
 ```
 
 The above code creates an empty dictionary with no key:value pairs. In order to create a dictionary which contains key:value pairs, programmers can write the following:
 
-```
+```py
 # Creating a dictionary with starting key:value pairs
 my_dictionary = {'key 1': 'value 1', 'key 2': 2, 3: 'value 3'};
 ```
@@ -37,14 +37,14 @@ Note that each "element" in the dictionary is a key:value pair. All of the keys 
 
 There is also another way of creating a dictionary: using the `dict()` constructor:
 
-```
+```py
 # Creating an empty dictionary using the dict() constructor
 my_dictionary = dict();
 ```
 
 The `dict()` constructor also accepts sequences of key:value pairs. Take the following example, which builds a dictionary using an array of tuples:
 
-```
+```py
 # Creating a dictionary from tuples using the dict() constructor
 my_dictionary = dict([('key 1', 'value 1'), ('key 2', 2), (3,'value 3')]);
 ```
@@ -53,7 +53,7 @@ my_dictionary = dict([('key 1', 'value 1'), ('key 2', 2), (3,'value 3')]);
 
 Dictionaries are unlike some of the other containers we've covered in that their values cannot be accessed by using an index or iterating over the elements in the container. For instance, the following code, while valid, incorrectly attempts to access a value in the dictionary we created earlier:
 
-```
+```py
 # Creating a dictionary with starting key:value pairs
 my_dictionary = {'key 1': 'value 1', 'key 2': 2, 3: 'value 3'};
 
@@ -63,7 +63,7 @@ my_dictionary[0];
 
 Simply put, programmers do not access values by index; they do so by key when working with dictionaries. As such, the valid key must be used rather than the index:
 
-```
+```py
 # Creating a dictionary with starting key:value pairs
 my_dictionary = {'key 1': 'value 1', 'key 2': 2, 3: 'value 3'};
 
@@ -73,7 +73,7 @@ my_dictionary['key 1'];
 
 The nature of a dictionary also makes iterating over the elements in the container trickier:
 
-```
+```py
 my_dictionary = {'key 1': 'value 1', 'key 2': 2, 3: 'value 3'};
 
 for value in my_dictionary:
@@ -82,7 +82,7 @@ for value in my_dictionary:
 
 While the above syntax does have a valid use, it does not do what some new Python programmers might think it does. The loop actually prints out each out each *key* rather than the underlying values associates with those keys. Consequently, developers still have to use the keys they obtain to later access the values. That said, Python offers an abbreviated syntax for accessing both a key and its underlying value in a single loop iteration:
 
-```
+```py
 my_dictionary = {'key 1': 'value 1', 'key 2': 2, 3: 'value 3'};
 
 for key, value in my_dictionary.items():
@@ -93,11 +93,11 @@ The items method returns an array of tuples. Each loop variable defined here ref
 
 ## Mutating Dictionaries
 
-One of the benefits of using dictionaries is their mutability. Python makes adding and removing key:pairs from dictionaries easy. 
+One of the benefits of using dictionaries is their mutability. Python makes adding and removing key:pairs from dictionaries easy.
 
 In order to add a new pair to a dictionary, write the following:
 
-```
+```py
 my_dictionary = {'key 1': 'value 1', 'key 2': 2, 3: 'value 3'};
 
 # Adding a new key:value pair to the dictionary
@@ -105,7 +105,7 @@ my_dictionary['new key'] = 'new value';
 ```
 The `update` method can also be used to this effect:
 
-```
+```py
 my_dictionary = {'key 1': 'value 1', 'key 2': 2, 3: 'value 3'};
 
 my_dictionary.update([('new key', 'new value')]);
@@ -115,7 +115,7 @@ Note that the `update` method takes a collection of sequences, which means that 
 
 Removing an element is just as easy. Use the `pop` method, passing in the key as an argument:
 
-```
+```py
 my_dictionary = {'key 1': 'value 1', 'key 2': 2, 3: 'value 3'};
 
 # This removes the key:value pair with the key 'key 1'.
@@ -125,7 +125,7 @@ my_dictionary.pop('key 1');
 
 For developers who prefer a syntax for removing key:pairs from a dictionary that's easier to read, the [`del` keyword](https://docs.python.org/3/tutorial/datastructures.html#the-del-statement) can be used here as well:
 
-```
+```py
 my_dictionary = {'key 1': 'value 1', 'key 2': 2, 3: 'value 3'};
 
 del my_dictionary['key 1];

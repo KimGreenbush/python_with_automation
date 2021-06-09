@@ -19,7 +19,7 @@ In order to create a module, a developer should create a file that has the *.py*
 
 Take the following module for example:
 
-```
+```py
 # This code is inside of a file called "my_module.py".
 
 variable_introduction = "I'm a variable inside of a module!";
@@ -40,9 +40,9 @@ Note the following:
 
 Once a developer has created a module, they can import the module elsewhere in order to access functions, classes, and variables that are defined within the module:
 
-```
 This code is inside of a file called "other_module.py".
 
+```py
 import my_module
 
 # Using the function defined inside of my_module.py

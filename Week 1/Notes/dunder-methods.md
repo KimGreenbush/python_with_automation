@@ -17,16 +17,16 @@ Regardless of the name used to refer to dunder methods, the developer should und
 
 Examples of dunder methods include:
 
-- \__init__: called after an instance of a class been created
-- \__str__: provides a printable string representation of an object
-- \__lt__: allows for operator overloading of the `<` symbol
-- \__gt__: allows for operator overloading of the `>` symbol
+-  \_\_init__: called after an instance of a class been created
+-  \_\_str__: provides a printable string representation of an object
+-  \_\_lt__: allows for operator overloading of the `<` symbol
+-  \_\_gt__: allows for operator overloading of the `>` symbol
 
 ## How To Use A Dunder Method
 
 In order to take advantage of dunder methods, a developer should first define a class. As such, we've defined the following class:
 
-```
+```py
 class Teenager:
     _moody = True;
 
@@ -35,11 +35,11 @@ class Teenager:
         self.height = height;
 ```
 
-We've already overridden the **\__init__** method as we typically would in any class. That said, we'll override another method that will make the benefits of using dunder methods for operator overloading clear. 
+We've already overridden the **\__init__** method as we typically would in any class. That said, we'll override another method that will make the benefits of using dunder methods for operator overloading clear.
 
 Before doing so, however, let's imagine that we want to compare two instances `Teenager`. If, for instance, we wanted to compare two instances of the class based on which instance has a higher value for the `age` property, perhaps we'd want to write the following code:
 
-```
+```py
 teen_one = Teenager(13, 65);
 teen_two = Teenager(15, 70);
 
@@ -52,7 +52,7 @@ else:
 
 Unfortunately, the above code will raise a `TypeError` because there is no built-in way of comparing instances of the `Teenager` class using this operator. As a result, we have to tell Python how to compare instances of the class when using this operator. In order to do so, we'll use the **\__gt__** method:
 
-```
+```py
 class Teenager:
     _moody = True;
 
@@ -71,7 +71,7 @@ We've implemented the dunder method in such a way that it uses each instance's `
 
 With the addition of the **\__gt__** method, we should now be able to legally use the `>` operator to compare instances of `Teenager`:
 
-```
+```py
 teen_one = Teenager(13, 65);
 teen_two = Teenager(15, 70);
 

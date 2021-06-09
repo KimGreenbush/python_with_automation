@@ -10,7 +10,7 @@
 
 ## What Is A Function?
 
-A function is a block of code that accomplishes a particular task. A developer might, for instance, create a function which returns the sum of two numbers. 
+A function is a block of code that accomplishes a particular task. A developer might, for instance, create a function which returns the sum of two numbers.
 
 Functions only run when they are referenced elsewhere in the program. In Python, a developer can call a function from within a module and within other functions.
 
@@ -20,7 +20,7 @@ Developers who only have experience with strictly object-oriented programming la
 
 In order to define a function in Python, a developer must use the following syntax:
 
-```
+```py
 def func_name(param1, param2):
     # Function logic here
 ```
@@ -40,7 +40,7 @@ As mentioned above, when a method rather than a function is defined, a parameter
 
 The keyword is passed in as the first argument. As such, if the function definition above were placed inside of a class, it would be rewritten as:
 
-```
+```py
 def func_name(self, param1, param2):
     # Function logic here
 ```
@@ -51,14 +51,14 @@ If a programmer does not explicitly use the `self` keyword to access class prope
 
 Upon returning to the small code snippet defined in a previous section, perhaps you noticed that this function does not have a return type:
 
-```
+```py
 def func_name(param1, param2):
     # Function logic here
 ```
 
 In Python, return types are not specified. As such, a developer can return whatever value they want to as such:
 
-```
+```py
 def func_name(param1, param2):
     # Function logic here
     some_val = True;
@@ -69,14 +69,14 @@ This function now returns a boolean value of `True`. It could also, however, hav
 
 Let's now return to our original function definition:
 
-```
+```py
 def func_name(param1, param2):
     # Function logic here
 ```
 
 Despite the fact that there is no return statement present, this function does return a value as all functions in Python return a value. That value is `None` if no other return value is specified. The `None` keyword simply denotes the absence of a value. Developers can also explicitly return `None`.
 
-```
+```py
 def func_name(param1, param2):
     # Function logic here
     return None;
@@ -86,14 +86,14 @@ def func_name(param1, param2):
 
 Thus far, many of the code snippets have featured functions which are not syntactically valid. If a function has no logic, many integrated development environments will mark the lack of such logic as an error. In order to prevent this problem, developers can use the `pass` keyword:
 
-```
+```py
 def func_name(param1, param2):
     pass;
 ```
 
 This keyword will provide the programmer with the opportunity to come back and provide the implementation later without worrying about leaving syntactically invalid code in their project. Of course, the developer also has the option to provide the actual implementation here as well:
 
-```
+```py
 def func_name(param1, param2):
     return param1 + param2;
 ```
@@ -104,7 +104,7 @@ Now that the function is fully "implemented", let's explore some ways in which w
 
 Observe the following:
 
-```
+```py
 def func_name(param1, param2):
     return param1 + param2;
 
@@ -116,7 +116,7 @@ This code snippet shows a simple function call. Function two, defined as `func_t
 
 Functions can also be called at the module level. For instance:
 
-```
+```py
 def func_name(param1, param2):
     return param1 + param2;
 
@@ -132,7 +132,7 @@ As you can see, the function call is perfectly valid outside of a class.
 
 In Python, functions are objects. As such, developers can not only define functions but pass them to other functions as arguments:
 
-```
+```py
 def some_func():
     return True;
 
@@ -144,7 +144,7 @@ caller_func(some_func);
 
 Notice that `caller_func` takes `some_func` as a callback function. It is worth noting that the outer function does not actually call `some_func` in this example. It simply returns the function, which is an object. In order to call the function, the developer should do the following:
 
-```
+```py
 def some_func():
     return True;
 
@@ -158,7 +158,7 @@ The only difference here is that the function `param1` references has been invok
 
 Since functions are objects, we can also create references to them like so:
 
-```
+```py
 def some_func():
     return True;
 
@@ -174,7 +174,7 @@ We can then use the `func_ref` variable to later call `some_func`.
 
 **Fun Fact**: Developers can also define functions within the scope of other functions. These local functions are scoped only to the functions in which they are defined:
 
-```
+```py
 def some_func():
     def inner_func():
         return True;
@@ -185,14 +185,14 @@ def some_func():
 
 Python programmers have a lot of flexibility in how they define the arguments that should be passed to a function when it is called. Once again revisiting our short function definition, we can observe it defines two parameters:
 
-```
+```py
 def func_name(param1, param2):
     return param1 + param2;
 ```
 
 Let's modify this function definition slightly:
 
-```
+```py
 def func_name(param1, param2, param3 = 100):
     return param1 + param2 + param3;
 ```
@@ -201,7 +201,7 @@ Notice that a third parameter called `param3` now exists. This parameter is know
 
 A keyword argument is provided a default value when it is defined. As such, when the function is called, the caller is not required to pass in a value for the keyword argument. Some valid function calls for `func_name` now include:
 
-```
+```py
 func_name(2, 3);
 func_name(2, 3, 4);
 func_name(2, 3, param3 = 4);
@@ -210,24 +210,24 @@ func_name(2, 3, param3 = 4);
 Note the following:
 
 - You must pass values for the first two parameters in. These are known as **positional arguments** and are mandatory.
-- You have the option not to pass in values for keyword arguments; the default values for keyword arguments will simply be used. When you do pass in keyword arguments, you can do so by either using the name of the parameter or just passing in a value as if the named parameter was positional. 
+- You have the option not to pass in values for keyword arguments; the default values for keyword arguments will simply be used. When you do pass in keyword arguments, you can do so by either using the name of the parameter or just passing in a value as if the named parameter was positional.
 
 The ability to use the name of a parameter comes in handy. For instance, let's imagine that we now have a fourth parameter:
 
-```
+```py
 def func_name(param1, param2, param3 = 100, param4 = 200):
     return param1 + param2;
 ```
 
 Both `param3` and `param4` are optionally passed in when calling the function. That said, what happens when a developer wants to pass in a value for `param4` and rely on the default value for `param3`? Let's take a look:
 
-```
+```py
 func_name(2, 3, 4);
 ```
 
 The above function call will not achieve this result as it is assumed that the third argument refers to the `param3` as no name is used to specify otherwise. The developer should instead write:
 
-```
+```py
 func_name(2, 3, param4 = 4);
 ```
 

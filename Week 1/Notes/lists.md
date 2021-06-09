@@ -21,21 +21,21 @@ Some notable features of a list include:
 
 The syntax for creating a list in Python is as follows:
 
-```
+```py
 # An empty list
 my_list = [];
 ```
 
 Of course, this list is empty. We can also create a list that contains elements already:
 
-```
+```py
 # A list with numbers
 my_list = [1, 2, 3];
 ```
 
 Also note that Python uses [duck typing](https://en.wikipedia.org/wiki/Duck_typing). This means that a developer can add any type to a container. As a result, following list initialization is valid as well:
 
-```
+```py
 # A list with random, unrelated elements
 my_list = [1, 'one', [1]];
 ```
@@ -44,7 +44,7 @@ When using such a list, a programmer must be extremely careful when iterating ov
 
 Yet another option allows developers to use the list constructor:
 
-```
+```py
 # A list with random, unrelated elements
 my_list = [1, 'one', [1]];
 
@@ -59,14 +59,14 @@ other_other_list = list(my_list);
 
 Let's imagine that we have an existing list:
 
-```
+```py
 # A list with random, unrelated elements
 my_list = [1, 'one', [1]];
 ```
 
 As we mentioned earlier, lists support random access. Consequently, we can easily and efficiently access any element by its index like so:
 
-```
+```py
 # Print the first element of the list
 print(my_list[0]);
 

@@ -24,7 +24,7 @@ These are the four official scopes in Python. We'll explore how each of these sc
 
 The local scope is a standard scope in programming languages. A variable's scope is local if it is defined within the block of code inside of which it is being referenced. For instance:
 
-```
+```py
 def my_func():
     local_var = 'local variable';
     print(local_var);
@@ -32,7 +32,7 @@ def my_func():
 
 The variable `local_var` is local to the `my_func` function. If there were another variable called `local_var` defined before the function, the local variable would take precedence:
 
-```
+```py
 local_var = 'not local variable';
 
 def my_func():
@@ -46,7 +46,7 @@ When `my_func` is invoked, it still prints the value of the local variable.
 
 Sometimes developers want to access a variable from an outer scope. As such, we'll revisit our previous example:
 
-```
+```py
 local_var = 'not local variable';
 
 def my_func():
@@ -62,7 +62,7 @@ Fortunately, Python allows programmers to reference variables from outer scopes 
 
 A variable that is created outside of a function is considered a global variable. As such, we must use the `global` keyword in order to access our outer `local_var` variable:
 
-```
+```py
 local_var = 'not local variable';
 
 def my_func():
@@ -80,7 +80,7 @@ When the print statement in the script finally executes, it is clear that the `l
 
 There is another keyword which helps eliminate the problem of shadowing: `nonlocal`. In order to showcase the keyword's behavior, we'll modify the current example:
 
-```
+```py
 local_var = 'not local variable';
 
 def my_func():
@@ -103,7 +103,7 @@ We've added a local variable called `another_local_var` and a nested inner funct
 
 Because the variable within the enclosing scope is shadowed, the inner function does not have the effect some developers would want it to have. As such, we must use the `nonlocal` keyword to refer to the variable within the enclosing scope:
 
-```
+```py
 local_var = 'not local variable';
 
 def my_func():
@@ -128,7 +128,7 @@ The addition of the `nonlocal` keyword within the inner function ensures that we
 
 The built-in scope is the "highest" scope, meaning that it is always in scope. The [`id`](https://docs.python.org/3/library/functions.html#id) function, for instance, is a built-in function that some developers who are new to Python accidentally shadow frequently as it always in scope:
 
-```
+```py
 # Shadowing the built-in name "id"
 id = 0;
 ```

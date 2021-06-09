@@ -12,7 +12,7 @@
 
 Classes and objects are key concepts in any object-oriented programming language. Since Python is a multi-paradigm programming language, it also supports the creation of classes and objects.
 
-A **class** is a template that developers define and use to later create objects. This template might include properties for managing state and methods for altering this state. 
+A **class** is a template that developers define and use to later create objects. This template might include properties for managing state and methods for altering this state.
 
 An **object** is an instance of a class. Each object follows the template laid out by the class, receiving its own copies of the class' properties.
 
@@ -20,7 +20,7 @@ An **object** is an instance of a class. Each object follows the template laid o
 
 The syntax for creating a class in Python is as follows:
 
-```
+```py
 class MyClass:
     pass;
 ```
@@ -34,7 +34,7 @@ Here are few things to note about this class definition:
 
 Of course, an empty class definition is not useful to us right now. We can add methods and state to our class as well:
 
-```
+```py
 class MyClass:
     prop1 = 0;
     prop2 = 'prop 2';
@@ -46,7 +46,7 @@ This updated example creates two properties and a method which simply prints a m
 
 With this class definition, we'll now create an instance of the class:
 
-```
+```py
 my_class_instance = MyClass();
 ```
 
@@ -61,7 +61,7 @@ Though Python developers can rely on the default constructor to create instances
 
 Take the previously defined class for example:
 
-```
+```py
 class MyClass:
     prop1 = 0;
     prop2 = 'prop 2';
@@ -72,7 +72,7 @@ class MyClass:
 
 It is not currently possible for a developer to create an instance of `MyClass` while simultaneously specifying the starting values of `prop1` and `prop2`. As such, we need a custom constructor that we can use to pass in starting values for these properties. The syntax for defining a constructor is as follows:
 
-```
+```py
 class MyClass:
     prop1 = 0;
     prop2 = 'prop 2';
@@ -87,7 +87,7 @@ class MyClass:
 
 The constructor must be called `__init__` and developers must define a first parameter for the constructor, which is typically called `self`. The constructor currently has no logic, so let's define what our constructor should do.
 
-```
+```py
 class MyClass:
     prop1 = 0;
     prop2 = 'prop 2';
@@ -105,7 +105,7 @@ The constructor now accepts two additional parameters. The constructor's logic t
 
 As an additional note, developers are not required to define class properties outside of constructors. For instance, the following code snippet is equivalent to the previous snippet in that it defines two class properties called `prop1` and `prop2`:
 
-```
+```py
 class MyClass:
     # Constructor definition
     def __init__(self, prop1, prop2):
@@ -122,7 +122,7 @@ It is important to remember that once you define a constructor, you can no longe
 
 With the newly created instance, Python programmers can directly access the properties and methods that are defined at the class level:
 
-```
+```py
 my_class_instance = MyClass(1, 'Trainer Name');
 my_class_instance.prop1 = 10;
 my_class_instance.prop2 = 'Not Trainer Name';
@@ -131,7 +131,7 @@ my_class_instance.my_method();
 
 This direct access is possible because there are no access modifiers in Python. Despite this lack of access modifiers, developers who wish to properties as if they were private members of a class prefix those property names with an underscore:
 
-```
+```py
 class MyClass:
     _prop1 = 0;
     _prop2 = 'prop 2';
@@ -142,7 +142,7 @@ class MyClass:
 
 Understand that this naming convention is just that: convention. It does not actually prevent direct access to a property. As such, the following code is syntactically valid:
 
-```
+```py
 my_class_instance = MyClass(1, 'Trainer Name');
 my_class_instance._prop1 = 10;
 my_class_instance._prop2 = 'Not Trainer Name';
@@ -153,7 +153,7 @@ my_class_instance.my_method();
 
 Like many other programming languages, Python supports inheritance by allowing developers to create child classes of existing classes. The syntax for creating a child class is as follows:
 
-```
+```py
 class MyClass:
     # Constructor definition
     def __init__(self, prop1, prop2):
@@ -169,9 +169,9 @@ class MyChildClass(MyClass):
 
 In this example, `MyChildClass` is a child class of `MyClass`. As such, it inherits properties and methods from its parent class.
 
-It is worth noting that even the parent class, `MyClass` inherits from another class: `object`. It is implicitly the case that it extends the `object` class, so we do not have to write the following:
+It is worth noting that even the parent class, `MyClass` inherits from another class: `object`. It is implicitly the case that it extends the `object` class, so we do not have to write the following: *ChildClass(ParentClass)*
 
-```
+```py
 class MyClass(object):
     # Constructor definition
     def __init__(self, prop1, prop2):

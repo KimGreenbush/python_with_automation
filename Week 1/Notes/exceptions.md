@@ -16,7 +16,7 @@ When executing a program, developers sometimes find that errors are detected dur
 
 At its core, an exception is a type. All exceptions are instances of a class that inherits from the built-in class `BaseException`.
 
-Despite the fact that all exception types inherit from `BaseException`, this class is not designed to be directly inherited from. If a developer wishes to create a custom exception by way of a user-defined class, they should use the `Exception` class. The `Exception` class is derived from `BaseException` and is used to define non-system-exiting exceptions. 
+Despite the fact that all exception types inherit from `BaseException`, this class is not designed to be directly inherited from. If a developer wishes to create a custom exception by way of a user-defined class, they should use the `Exception` class. The `Exception` class is derived from `BaseException` and is used to define non-system-exiting exceptions.
 
 ### A Side Note: SyntaxError
 
@@ -24,7 +24,7 @@ The Python [documentation for user-defined exceptions](https://docs.python.org/3
 
 A *syntax error*, also called a parsing error, occurs when a developer writes syntactically invalid Python code. Take the following code for example:
 
-```
+```py
 if True:
 print('This is syntactically invalid.');
 ```
@@ -39,7 +39,7 @@ That said, do not be fooled by Pythonic naming conventions. As you dive deeper i
 
 Developers have the ability to create their own custom exceptions while writing their applications. The syntax for creating an exception in Python is as follows:
 
-```
+```py
 class MyCustomException(Exception):
     # The pass statement is simply here for lack of a proper class body.
     pass;
@@ -49,7 +49,7 @@ The class `MyCustomException` extends `Exception`. As we discussed earlier, the 
 
 Once a programmer has created an exception, they make use of it with the `raise` keyword:
 
-```
+```py
 class MyCustomException(Exception):
     # The pass statement is simply here for lack of a proper class body.
     pass;
@@ -72,7 +72,7 @@ In the code snippet above, we raise an exception but fail to handle it. As such,
 
 The modified code snippets looks like this:
 
-```
+```py
 class MyCustomException(Exception):
     # The pass statement is simply here for lack of a proper class body.
     pass;
@@ -97,7 +97,7 @@ Now our program continues to execute despite the fact that an exception is raise
 
 Aside from the `try` and `except` scopes, there is a third scope called the `finally` scope. This scope can follow the `except` scope:
 
-```
+```py
 class MyCustomException(Exception):
     # The pass statement is simply here for lack of a proper class body.
     pass;
@@ -122,7 +122,7 @@ It is important to understand that the `finally` scope will always execute &mdas
 
 **Invalid**:
 
-```
+```py
 class MyCustomException(Exception):
     # The pass statement is simply here for lack of a proper class body.
     pass;
@@ -138,7 +138,7 @@ print("Now back to our regularly scheduled program!");
 
 **Valid**:
 
-```
+```py
 class MyCustomException(Exception):
     # The pass statement is simply here for lack of a proper class body.
     pass;
@@ -157,7 +157,7 @@ print("Now back to our regularly scheduled program!");
 
 **Also Valid**:
 
-```
+```py
 class MyCustomException(Exception):
     # The pass statement is simply here for lack of a proper class body.
     pass;

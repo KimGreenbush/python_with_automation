@@ -13,27 +13,27 @@
 
 `venv` is a Python module that provides support for creating virtual development environments. A *virtual environment* is a Python environment that is isolated from the host system, allowing for packages to be installed only within the scope of particular application.
 
-There are alternatives to venv such as [virtualenv](https://virtualenv.pypa.io/en/latest/), but `venv` is the standard module for creating virtual environments. 
+There are alternatives to venv such as [virtualenv](https://virtualenv.pypa.io/en/latest/), but `venv` is the standard module for creating virtual environments.
 
 # Using venv To Create Virtual Environments
 
 In order to create a virtual environment using `venv`, a developer should run the following command using their directory of choice:
 
-```
+```powershell
 python -m venv [directory]
 ```
 
 This command marks a directory as a virtual environment by creating a `pyenv.cfg` file and several directories. The file details the version of Python that should be used within the virtual environment, specifies whether or not system-wide packages should be used, and provides other configuration information.
 
-Note, however, that running this command does not start the virtual environment. In order to start the virtual environment, the developer should run the `activate.bat` script in the "Scripts" folder that was created when they ran the first command. Of course, if a developer is not running Windows, the file extension for the script will be different.
+Note, however, that running this command does not start the virtual environment. In order to start the virtual environment, the developer should run the `activate` script in the "Scripts" folder that was created when they ran the first command. Of course, if a developer is not running Windows, the file extension for the script will be different.
 
-```
-.\Scripts\activate.bat
+```powershell
+<path>/Scripts/activate
 ```
 
 Once the virtual environment has been activated, run the following command:
 
-```
+```powershell
 pip list
 ```
 
@@ -41,7 +41,7 @@ There should only be a couple of packages installed by default as `venv` automat
 
 In order to install more packages into the virtual environment, use `pip` to install packages from PyPI or other indexes like so:
 
-```
+```powershell
 pip install flask
 ```
 
@@ -49,13 +49,13 @@ This command installs the `flask` package and all of its transitive dependencies
 
 When a programmer is finished working in their virtual environment, they would deactivate it like so:
 
-```
-.\Scripts\deactivate.bat
+```powershell
+deactivate
 ```
 
 Once the environment has been deactivated, run `pip list` once again:
 
-```
+```powershell
 pip list
 ```
 

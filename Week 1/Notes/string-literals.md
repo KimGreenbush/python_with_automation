@@ -17,7 +17,7 @@ Strings are a data type used in several programming languages &mdash; including 
 
 In Python, programmers can create strings by using the string constructor, single quotes, double quotes, or even triple quotes:
 
-```
+```py
 # A string created using the string constructor
 string_zero = str('I am a string.');
 
@@ -27,7 +27,7 @@ string_one = 'I am a string.';
 # A string enclosed by double quotes
 string_two = "I'm a string.";
 
-# A string enclosed by triple quotes 
+# A string enclosed by triple quotes
 string_three = """I'm
                     a
                     string.""";
@@ -43,7 +43,7 @@ Note the following about the above code snippet:
 
 Because strings are really just sequences or characters, Python allows developers to easily access specific elements of a string using the same syntax they would use to access elements of a container such as a list:
 
-```
+```py
 # A string enclosed by single quotes
 string_one = 'I am a string.';
 
@@ -57,7 +57,7 @@ elem_one = string_one[0];
 
 The term "literal" refers to a notation for a constant value. A **string literal** allows for a simple way of specifying the contents of a string in a program. Take the following snippet for example:
 
-```
+```py
 my_string = 'a string literal';
 ```
 
@@ -67,7 +67,7 @@ In the above statement, `a string literal` is a string literal which the variabl
 
 Python provides developers with several utilities for easily formatting strings. One such utility is the `format` method. Take a look the example below:
 
-```
+```py
 # Creates a string with a parameter with an index of 0
 christina = 'Christina {0}';
 
@@ -82,7 +82,7 @@ Note the following:
 
 Python programmers can also take advantage of literal string interpolation. Strings that use the syntax for literal string interpolation are sometimes called *f-strings*:
 
-```
+```py
 color = 'brown';
 animal_one = 'fox';
 animal_two = 'dog';
@@ -94,7 +94,7 @@ The name for an *f-string* is fitting given that is simply a string that is prec
 
 Programmers can also enjoy easy date formatting with *f-strings*:
 
-```
+```py
 date = datetime.date(2021, 6, 3);
 
 # This prints: "Today is 2021-06-03 and it is a Thursday."
@@ -111,7 +111,7 @@ Developers should note, however, that Python's interning strategy differs with e
 
 **Fun Fact**: If a programmer is unsure of which implementation of Python they're using, they can write the following code to find out this information:
 
-```
+```py
 import platform
 
 print(platform.python_implementation());
@@ -119,7 +119,7 @@ print(platform.python_implementation());
 
 As CPython does guarantee some degree of interning, developers can easily verify this interning. Observe the following:
 
-```
+```py
 christina = 'christina';
 canisha = 'canisha';
 christina_again = 'christina';
