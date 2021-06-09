@@ -1,3 +1,11 @@
+# We have moved our dummy_users into the "user.py" file. As such, we introduced an error
+# into this module. We need to import the dummy_users from our user module.
+
+# We've imported dummy_users from the user module, but we're using the alias "users" for it. This means
+# that we can use "users" to refer to "dummy_users".
+
+from src.models.user import dummy_users as users
+
 # We can create our own custom exceptions and raise them.
 
 # Please note that in order to create a child class, we must use the syntax that you see the below. The
@@ -45,14 +53,18 @@ password = input('Please enter password: ')
 
 # Note that we need to return here to import the dummy users.
 
-dummy_users[username]
-
 # # We use "try" to denote that the code within this block might throw an exception.
 try:
-    if dummy_users[username] == password:
-        print('Hello, ' + username)
-    else:
-        raise InvalidCredentialsError()
+    # We want use this flag so that we can use it later to if the username/password match
+    valid_credentials = False
+    for user in users:
+        if user._user_name == username and user._user_password == password:
+            valid_credentials = True
+            print('Hello,', username)
+    # If we move through the entire set and we still have not found this user/password combo, then we will
+    # raise our custom exception.
+    if not valid_credentials:
+       raise InvalidCredentialsError()
 # We use the "except" keyword to course correct our application by handling the KeyError. In essence,
 # we define what should happen when this exception type is raised.
 except KeyError:

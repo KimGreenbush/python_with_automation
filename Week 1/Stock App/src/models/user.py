@@ -1,5 +1,5 @@
 class User:
-
+    user_prop = True
     # Constructor for the user class
     def __init__(self, user_id, user_name, user_password, user_email, user_portfolio_list):
         self._user_id = user_id
