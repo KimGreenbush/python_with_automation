@@ -1,52 +1,64 @@
-# Tim the Enchanter
+# We can create our own custom exceptions and raise them.
 
-# You guys want to create dummy data for the time being. As such, you decided to use some sort of container
-# to do so. Your suggestions: list, set, dictionary (dict), tuple (you did not suggest this one, but it
-# is on the curriculum)
+# Please note that in order to create a child class, we must use the syntax that you see the below. The
+# parent class is specified in the parentheses next to the class name. In this case, our parent class
+# is Exception. Also note that if you are creating a custom exception type, you should extend Exception rather
+# than BaseException as Exception is intended to be used for all non-exiting errors.
 
-# Creating a list of users. Please note that lists: support duplicates, allow you to access elements by
-# their index, maintain their order
+# Also note that all classes technically extend the object class. This is just implicit (e.g.
+# class MyClass(object):
 
-users = ['user1', 'user2', 'user1']
-users_two = list()
-users_three = list(users)
+# Per someone's request (Jonathan's), we've made our custom exception a KeyError exception, which means
+# that we can later handle this exception by catching a KeyError. Please note that this is optional for those
+# of you that just prefer to just extend the Exception class.
 
-print(users)
-print(users[0])
+class InvalidCredentialsError(KeyError):
+    pass
 
-# Creating a set of users. Please note that sets: do not support duplicates, do not maintain order, do
-# not allow access to their elements by index (e.g. set_of_users[0] raises a TypeError
-
-# This creates a set with two elements
-set_of_users = {'user1', 'user2'}
-# This is an empty set. You CANNOT create an empty set using empty curly braces {}. You must use the
-# set constructor.
-empty_set = set()
-
-# If I want to access the elements of my set, I can simply iterate over the set.
-
-for user in set_of_users:
-    print(user)
-
-# Creating a dictionary of users. A dictionary (called a "dict" in Python) is an associative container
-# which contains key-value pairs. Note that the equivalent of dict is a Map in some programming languages.
-
-dictionary_of_users = {}
-dictionary_of_users_two = dict()
-
-# Please note that all keys within a dict must be unique but that values can be duplicated
-dictionary_of_users_three = {1: 'password1', 'user2': 'password2', 1: 'another password'}
-
-# We must use the key to access the underlying value
-print(dictionary_of_users_three[1])
-
-# Iterating over a dict:
-
-# When we call the items() method, it returns a set-like object that we then iterate over
-for key, value in dictionary_of_users_three.items():
-    print(key, value)
+try:
+    raise InvalidCredentialsError()
+except InvalidCredentialsError:
+    print('I raised my own exception for demo purposes')
 
 # The input is a built-in function that you can use to prompt a user for input. Note that it returns
 # that user input.
 
-# username = input('Please enter username: ')
+username = input('Please enter username: ')
+# # Pretend that this password has been hashed and that it's not stored as plain text
+password = input('Please enter password: ')
+
+# We want loop through our dict and compare our user's username and password to those contained within
+# the dict
+
+# Commented out for your reference
+# for user_name, user_pass in dummy_users.items():
+#     if username == user_name and password == user_pass:
+#         print('You logged in successfully')
+
+# # Please note that all objects in Python are truthy or falsy, which means that we can directly use them
+# # as they will be resolved to a boolean value here:
+# if 'not an empty string':
+#     print('truthy')
+
+# This line of code can cause an exception to be "raised". As such, we should do some exception handling.
+# I say "should" because we are not required to handle this exception before running our script.
+
+# Note that we need to return here to import the dummy users.
+
+dummy_users[username]
+
+# # We use "try" to denote that the code within this block might throw an exception.
+try:
+    if dummy_users[username] == password:
+        print('Hello, ' + username)
+    else:
+        raise InvalidCredentialsError()
+# We use the "except" keyword to course correct our application by handling the KeyError. In essence,
+# we define what should happen when this exception type is raised.
+except KeyError:
+    print('Invalid login.')
+# The finally block always executes. This means that if the KeyError is thrown, it executes. If the KeyError
+# is not thrown, it STILL executes.
+finally:
+    print('I always execute.')
+
