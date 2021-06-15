@@ -108,4 +108,4 @@ class UserEncoder(JSONEncoder):
             return super().default(self, user)
 
 
-dummy_users = {'1':user1, '2':user2, '3':user3}
+dummy_users = {1:user1, 2:user2, 3:user3}

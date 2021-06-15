@@ -1,6 +1,8 @@
 # We have to import the dummy users
 from src.models.user import dummy_users as users
 
+from src.models.user import *
+
 # Let's import our custom JSONEncoder
 from src.models.user import UserEncoder
 
@@ -11,7 +13,20 @@ from json import dumps
 # instance of Flask
 from src.app import flask_app
 
-from flask import jsonify
+# In order to access the request body and head, we will import "request" from flask
+
+from flask import request
+
+# We would like to add value to our debugging process. In essence, I would like to be able to present
+# some deliverable to my team which shows a history of my efforts to trace issues in my project. This is
+# essentially what is known as "logging".
+
+import logging
+
+# In order to configure our logger to write to a file (and change the logging level), we can do the
+# following:
+
+logging.basicConfig(filename='users.log', level=logging.INFO)
 
 # We need to define a route to send all of our users to the client. In essence, we want to write the users
 # to the response body so that they can be shipped back to the client.
@@ -27,3 +42,24 @@ def find_all():
     # also want to import some functions from the json library.
     my_json = dumps(users, cls=UserEncoder)
     return my_json
+
+@flask_app.route('/user/<int:user_id>')
+def find_by_id(user_id):
+    logging.info('The user ID that the client passed back is: ' + str(user_id))
+    # We need to check for the existence of the requested user ID
+    if user_id in users:
+        return dumps(users[user_id], cls=UserEncoder)
+    # If the user does not exist in our system, let's return an error message to the client
+    else:
+        return 'No such user'
+
+@flask_app.route('/user/new', methods=['POST'])
+def add_new_user():
+    client_json = request.get_json()
+    # We are accessing the request body as JSON and logging it to our file
+    logging.info(client_json)
+    # Take the client data, validate it first, and then persisting
+    new_user = User(4, client_json['name'], client_json['email'], client_json['password'], list())
+    users[4] = new_user
+    logging.info(users)
+    return "User successfully created!"
