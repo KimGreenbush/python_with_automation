@@ -1,5 +1,9 @@
+# We had to import the JSONEncoder
+from json import JSONEncoder
+
 # id is a built-in function that is always available. We are shadowing id here, which is bad practice.
 # I've only done this as proof of concept that id is a built-in function that is always visible.
+
 id = 3
 print('Print is also a built-in function')
 
@@ -87,4 +91,21 @@ user1 = User(1, 'Tim The Enchanter', 'Monty Python', 'tim@revature.net', list())
 user2 = User(2, 'Killer Rabbit', 'grenade', 'adorbs@not.com', list())
 user3 = User(3, 'hhg125', 'password', 'hhg125@mp.com', list())
 
-dummy_users = {user1, user2, user3}
+# Even though we've change the collection to dict, we still run into an issue because our user-defined type
+# (which is called User) is not serializable. We must indicate that it should be serializable and how it
+# should be serialized. In order to do so, we'll use the JSONEncoder class. We will make a custom encoder
+# type that extends this class like so:
+
+class UserEncoder(JSONEncoder):
+    # In order to define how your type should be serialized, you should override the "default"
+    # method:
+    def default(self, user):
+        if isinstance(user, User):
+            return user.__dict__
+        else:
+            # If something should go wrong, just fall back on the default (parent) implementation
+            # of this method
+            return super().default(self, user)
+
+
+dummy_users = {'1':user1, '2':user2, '3':user3}
