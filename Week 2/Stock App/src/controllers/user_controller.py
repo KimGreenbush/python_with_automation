@@ -1,4 +1,6 @@
 # We have to import the dummy users
+import werkzeug
+
 from src.models.user import dummy_users as users
 
 from src.models.user import *
@@ -16,6 +18,9 @@ from src.app import flask_app
 # In order to access the request body and head, we will import "request" from flask
 
 from flask import request
+
+# We want to import this built-in Flask collection of exceptions for easy use.
+import werkzeug.exceptions
 
 # We would like to add value to our debugging process. In essence, I would like to be able to present
 # some deliverable to my team which shows a history of my efforts to trace issues in my project. This is
@@ -63,3 +68,20 @@ def add_new_user():
     users[4] = new_user
     logging.info(users)
     return "User successfully created!"
+
+@flask_app.route('/user/name_length')
+def find_user_with_name_length():
+    # In order to access a request parameter that has come back with the request, we can use "request",
+    # which we imported earlier. We already have access to the request parameters via the "args" property.
+    logging.info(request.args.get('length'))
+    return 'Successfully retrieved reqeust parameter.'
+
+# What if I want a default way of handling certain errors or exceptions which might occur in my application?
+# I can define an "exception handler" which will be deferred to each time this exception or error occurs.
+
+# We must specify what this errorhandler actually handles. In our case, we can use one of Flask's built-in
+# exceptions.
+
+@flask_app.errorhandler(werkzeug.exceptions.NotFound)
+def handle_404(error):
+    return '404 Not Found: No such resource exists on this server!', 404

@@ -43,3 +43,15 @@ INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 INFO:root:{'name': 'Joker', 'email': 'haha@haha.ha', 'password': 'Batman'}
 INFO:root:{1: <src.models.user.User object at 0x000001E03F479F70>, 2: <src.models.user.User object at 0x000001E03F479EE0>, 3: <src.models.user.User object at 0x000001E03F479E50>, 4: <src.models.user.User object at 0x000001E03F4A1310>}
 INFO:werkzeug:127.0.0.1 - - [15/Jun/2021 12:15:57] "POST /user/new HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [16/Jun/2021 09:26:46] "GET /user/name_length HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [16/Jun/2021 09:30:13] "GET /user/name_length?length=8 HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:root:8
+INFO:werkzeug:127.0.0.1 - - [16/Jun/2021 09:39:55] "GET /user/name_length?length=8 HTTP/1.1" 200 -
+INFO:root:8000
+INFO:werkzeug:127.0.0.1 - - [16/Jun/2021 09:40:12] "GET /user/name_length?length=8000 HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [16/Jun/2021 09:57:52] "[33mGET /user/nay HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [16/Jun/2021 09:58:35] "[33mGET /use HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [16/Jun/2021 09:58:55] "[33mGET /use/does/not/exist HTTP/1.1[0m" 404 -
