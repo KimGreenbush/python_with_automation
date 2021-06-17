@@ -77,5 +77,38 @@ update users set last_name = 'the Enchanter' where user_id = 1;
 
 delete from users where user_id = 2;
 
+-- TCL 
+
+begin transaction;
+-- Imagine a scenario in which you accidentally remove records you did not intend to.
+truncate users cascade;
+select * from users;
+-- Rollback allows me to revert changes that have NOT been committed.
+rollback;
+commit;
+
+begin transaction;
+insert into portfolios values('sad portfolio', 3);
+-- I can specify a savepoint and then rollback to this specific point.
+savepoint before_my_shenanigans;
+insert into portfolios values('bad portfolio', 3);
+rollback to before_my_shenanigans;
+commit;
+
+-- Bonus utilities: Scalar and aggregate functions.
+
+-- Aggregate functions: count, sum, avg, min, max, stddev
+
+select count(user_id) from users;
+select count(distinct owner_id) from portfolios;
+
+-- You can use the "group by" keyword in conjunction with aggregate functions.
+select count(portfolio_name), owner_id from portfolios group by owner_id;
+
+-- Scalar functions: upper, lower, concat, sin, cos, tan, cot
+
+select concat(first_name, ' ', last_name) from users;
+-- Really weird trigonometric functions that we cannot apply here:
+select sin(user_id) from users;
 
 
