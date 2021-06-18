@@ -23,3 +23,19 @@ def get_all_users():
 
 def get_user_by_id():
     pass
+
+# We've decided to pass the user back as a dictionary
+def create_new_user(user):
+    try:
+        # Get a database connection
+        db_connection = get_connection()
+        db_cursor = db_connection.cursor()
+        # The implementation which directly takes the client input and concatenates this in our SQL is bad practice as
+        # it does not protect against SQL injection. SQL injection occurs when the client passes back valid SQL as input
+        # in an attempt to access information from your DB or destroy data (e.g. 'drop table users; --'). We can protect
+        # against SQL injection by using parameterization.
+        db_cursor.execute("insert into users values(default, ?, ?, ?, ?)", (user['first_name'], user['last_name'], user['email'], user['password']))
+        # We're not running in autocommit mode (purposely so), which means that we need to manually commit.
+        db_connection.commit()
+    finally:
+        db_connection.close()

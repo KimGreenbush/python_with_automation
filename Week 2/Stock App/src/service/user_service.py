@@ -15,3 +15,8 @@ def get_all_users():
         user_dict[user[0]] = User(user[0], user[1] + ' ' + user[2], user[4], user[3], list())
 
     return user_dict
+
+def create_new_user(user):
+    # This is very uneventful as there really isn't any business logic here, but this scales better as we have a dedicated
+    # place to come add this business logic if we need it in the future.
+    udao.create_new_user(user)

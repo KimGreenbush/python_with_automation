@@ -18,7 +18,7 @@ from src.app import flask_app
 
 # In order to access the request body and head, we will import "request" from flask
 
-from flask import request
+from flask import request, Response
 
 # We want to import this built-in Flask collection of exceptions for easy use.
 import werkzeug.exceptions
@@ -50,7 +50,7 @@ def find_all():
     # We want to use the special JSONEncoder that we created not too long ago. Please note that we will
     # also want to import some functions from the json library.
     my_json = dumps(u_service.get_all_users(), cls=UserEncoder)
-    return my_json
+    return Response(my_json, status=200)
 
 @flask_app.route('/user/<int:user_id>')
 def find_by_id(user_id):
@@ -68,9 +68,7 @@ def add_new_user():
     # We are accessing the request body as JSON and logging it to our file
     logging.info(client_json)
     # Take the client data, validate it first, and then persisting
-    new_user = User(4, client_json['name'], client_json['email'], client_json['password'], list())
-    users[4] = new_user
-    logging.info(users)
+    u_service.create_new_user(client_json)
     return "User successfully created!"
 
 @flask_app.route('/user/name_length')
