@@ -1,7 +1,8 @@
 # We have to import the dummy users
 import werkzeug
 
-from src.models.user import dummy_users as users
+# Deprecated because we're not using dummy data anymore. Our data actually comes from the DB.
+# from src.models.user import dummy_users as users
 
 from src.models.user import *
 
@@ -28,6 +29,9 @@ import werkzeug.exceptions
 
 import logging
 
+# We are now going to import our user_service in order to call the functions which transform the data from our DB.
+import src.service.user_service as u_service
+
 # In order to configure our logger to write to a file (and change the logging level), we can do the
 # following:
 
@@ -45,7 +49,7 @@ def find_all():
 
     # We want to use the special JSONEncoder that we created not too long ago. Please note that we will
     # also want to import some functions from the json library.
-    my_json = dumps(users, cls=UserEncoder)
+    my_json = dumps(u_service.get_all_users(), cls=UserEncoder)
     return my_json
 
 @flask_app.route('/user/<int:user_id>')

@@ -55,3 +55,6 @@ INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 INFO:werkzeug:127.0.0.1 - - [16/Jun/2021 09:57:52] "[33mGET /user/nay HTTP/1.1[0m" 404 -
 INFO:werkzeug:127.0.0.1 - - [16/Jun/2021 09:58:35] "[33mGET /use HTTP/1.1[0m" 404 -
 INFO:werkzeug:127.0.0.1 - - [16/Jun/2021 09:58:55] "[33mGET /use/does/not/exist HTTP/1.1[0m" 404 -
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+INFO:werkzeug:127.0.0.1 - - [18/Jun/2021 11:58:37] "GET /users HTTP/1.1" 200 -
